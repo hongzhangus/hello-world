@@ -1,0 +1,2985 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/npdpospoc#"
+     xml:base="http://www.semanticweb.org/npdpospoc"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/npdpospoc">
+        <author>Hong Zhang</author>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">First Build of NPD POS Semantics Data Model</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">NPD POS POC V1</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#author -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/npdpospoc#author"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/npdpospoc#definition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#id -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/npdpospoc#id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#defines -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#defines">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/npdpospoc#isDefinedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasAttribute -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasHierarchy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasHierarchy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasMeasure"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inAttributeSet -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#inAttributeSet">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/npdpospoc#includeAttribute"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <definition>An attribute is included in an Attribute Set.</definition>
+        <rdfs:comment>Inversation of includeAttribute</rdfs:comment>
+        <rdfs:label>inAttributeSet</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#includeAttribute -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#includeAttribute">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <definition>An Attribute Set includes some Attributes</definition>
+        <rdfs:comment>Inversation of inAttributeSet</rdfs:comment>
+        <rdfs:label>includeAttribute</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isChildAttributeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isChildAttributeOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/npdpospoc#isParentAttributeOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:label>isChildAttributeOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isChildBusinessOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isChildBusinessOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/npdpospoc#isParentBusinessOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <definition>The business can be treated as a child of another business in analysis of market domain, coverage or crossing industries</definition>
+        <rdfs:label>isChildBusinessOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isDefinedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isDefinedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isDefinedFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isDefinedFor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isDerivedAttributesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isDerivedAttributesFrom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isGeoPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isGeoPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isOwnedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isOwnedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Stores"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#Retailers"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isParentAttributeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isParentAttributeOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <definition>A general hierarchy of attributes defined by NPD for market analysis purpose. A subset of an attribute indicates all attributes it may drill down to.</definition>
+        <definition>The general hierarchy of attributes defined by NPD for market analysis purpose. A superset of an attribute indicates the attribute it may roll up to.</definition>
+        <rdfs:label>isParentAttributeOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isParentBusinessOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isParentBusinessOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <definition>A business is treated as parent of other businesses in analysis of market domain, coverage and crossing industries</definition>
+        <rdfs:label>isParentBusinessOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isRelatedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isRelatedTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isUsedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/npdpospoc#isUsedBy"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasAttributeCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasAttributeCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasAttributeSetCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasAttributeSetCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasAttributeType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasAttributeType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>Any Attribute Set type defined by NPD, include:
+  Item Attribute Set
+  Outlet Attribute Set
+  Retailer Attribute Set
+  Store Attribute Set
+  POS Attribute Set</definition>
+        <rdfs:label>hasAttributeType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasBusinessCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasBusinessCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>3 character Code defined for each NPD Business</definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasBusinessType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasBusinessType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>Any business types defined by NPD, include:
+  B2B
+  B2C
+  ...</definition>
+        <rdfs:label>hasBusinessType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasCalendarDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Calendars"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasCalendarID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Calendars"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasCountryCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasCountryCode">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasInventoryAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasInventoryAs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasItemID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasItemID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Items"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasMeasureType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasMeasureType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasNameAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasNameAs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>Name of any NPD data object</definition>
+        <rdfs:label>hasNameAs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasOutletCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasOutletCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Outlets"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasPPMonth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasPPMonth">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Calendars"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasPPWeek -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasPPWeek">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Calendars"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasPostalCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasPostalCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Stores"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasRetailerID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasRetailerID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Retailers"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasSalesVolumeAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasSalesVolumeAs">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasStoreID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasStoreID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Stores"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#hasUnitsSoldAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#hasUnitsSoldAs">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inCurrencyOf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inCurrencyOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inExchangeRateOf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inExchangeRateOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inItemAttributeGroup -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inItemAttributeGroup">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>Item attrubute groups defined by NPD and any attribute must be in one and only on of the groups, including:
+  Brand
+  Category
+  Category Specific Descriptive
+  General Descriptive</definition>
+        <rdfs:label>inItemAttributeGroup</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inItemStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inItemStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Items"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inPOSDataStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inPOSDataStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inRetailerStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inRetailerStatus">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Retailers"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inStatusOf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inStatusOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#inStoreStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#inStoreStatus">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/npdpospoc#Stores"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isCreatedAt -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#isCreatedAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <definition>created date time of any NPD data object</definition>
+        <rdfs:label>isCreatedAt</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isDescribedAs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#isDescribedAs">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <definition>A desctiption of any NPD data object</definition>
+        <rdfs:label>isDescribedAs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#isUpdatedAt -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#isUpdatedAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <definition>Last updated date time for any NPD data object</definition>
+        <rdfs:label>isUpdatedAt</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#withNPDCalendarID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#withNPDCalendarID">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#withSalesDateAt -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/npdpospoc#withSalesDateAt">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Brand_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Brand_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inItemAttributeGroup"/>
+                <owl:hasValue>Brand</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Brands -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Brands">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The primary attribute defined by NPD to define a product item and used in analysis of item classification and hierarchies.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brands</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Categories -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Categories">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The primary attribute defined by NPD to define a product item and used in analysis of item classification and hierarchies.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Categories</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Category_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Category_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inItemAttributeGroup"/>
+                <owl:hasValue>Category</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Category_Specific_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Category_Specific_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inItemAttributeGroup"/>
+                <owl:hasValue>Category Specific</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Category_Specifics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Category_Specifics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Specific_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item Category dependent descriptive attributes used for item analysis in classification and hiearachies</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category_Specifics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#General_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#General_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inItemAttributeGroup"/>
+                <owl:hasValue>General</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Generals -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Generals">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#General_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General descriptive attributes used for item analysis in classification and hiearachies</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generals</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttributeType"/>
+                <owl:hasValue>Item Attribute</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Item_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Item_Attributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subset of NPD Attribute reference data defined by NPD for Product Item classifications and hierarchies.  There are following exclusive groups of attributes:
+  Brands
+  Categories
+  Category Specifics
+  Generals</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isDefinedBy"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasAttributeSetCode"/>
+        </owl:hasKey>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Collection of Attributes defined by NPD for market analysis purpose and used in classification and hierarchies.  The attribute sets are business specific.
+There are following exclusive type of attribute Sets:
+  Item Attribute Sets
+  Outlet Attribute Sets
+  Retailer Attribute Sets
+  Store Attribute Sets
+  POS Attribute Sets</definition>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For this model, we consider the class is complete with following individuals:
+  ACC_A_BRAND
+  APL_A_CATEGORY
+  FTW_A_WEARERSIZE
+  TEC_A_CHANNEL</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NPD_Attribute_Sets</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Attributes">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isDefinedBy"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasAttributeCode"/>
+        </owl:hasKey>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Referenece and Hierarchy Data defined by NPD for Market Analysis Classification Purpose.  There are following exclusive type of attributes:
+  Item Attributes
+  Outlet Attributes
+  Retailer Attributes
+  Store Attributes
+  POS Attributes</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NPD_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Businesses -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Businesses">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasBusinessCode"/>
+        </owl:hasKey>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NPD defined vertical retail market domain.  It is also called Industries.  Business hierarchies in market analysis are defined via following object preoperties:
+  isChildBusiness
+  isParentBusiness</definition>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">For this model, we consider the class complete with following individuals:
+  ACC
+  APL
+  FTW
+  TEC</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NPD_Businesses</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Calendars -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Calendars">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasCalendarDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasCalendarID"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasPPMonth"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasPPWeek"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarDate"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarID"/>
+        </owl:hasKey>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A date within a Calendar</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Countries -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Countries">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isGeoPartOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Regions"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Items -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Items">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Specifics"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Generals"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Brands"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCountryCode"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasItemID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Measures -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Measures">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasInventoryAs"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasMeasureType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasSalesVolumeAs"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasUnitsSoldAs"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inCurrencyOf"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inExchangeRateOf"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Outlets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Outlets">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Outlet_Attributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasOutletCode"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NPD_Regions -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#NPD_Regions"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#National_POS_Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#National_POS_Data">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#POS_Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Outlet_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Outlet_Attribute_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttributeType"/>
+                <owl:hasValue>Outlet Attribute</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Outlet_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Outlet_Attributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Outlet_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subset of NPD Attribute reference data defined by NPD for Outlet and Channel classifications and hierarchies.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outlet_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Outlets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Outlets"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#POS_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#POS_Attribute_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttributeType"/>
+                <owl:hasValue>POS Attribute</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#POS_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#POS_Attributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#POS_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subset of NPD Attribute reference data defined by NPD for Point of Sales data classifications and hierarchies.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POS_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#POS_Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#POS_Data">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#POS_Attributes"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasMeasure"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Measures"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isRelatedTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Items"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isRelatedTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Outlets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isRelatedTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Retailers"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarDate"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCalendarID"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasCountryCode"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasItemID"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasOutletCode"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasRetailerID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Retailer_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Retailer_Attribute_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttributeType"/>
+                <owl:hasValue>Retailer Attribute</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Retailer_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Retailer_Attributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Retailer_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subset of NPD Attribute reference data defined by NPD for Retailer classifications and hierarchies.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Retailer_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Retailer_Items -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Retailer_Items"/>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Retailers -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Retailers">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Retailer_Attributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasRetailerID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Store_Attribute_Sets -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Store_Attribute_Sets">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attribute_Sets"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttributeType"/>
+                <owl:hasValue>Store Attribute</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Store_Attributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Store_Attributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Attributes"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#inAttributeSet"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Store_Attribute_Sets"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A subset of NPD Attribute reference data defined by NPD for retailer franchise classifications.</definition>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Store_Attributes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Store_POS_Data -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Store_POS_Data">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/npdpospoc#POS_Data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#isDefinedBy"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/npdpospoc#Stores"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasPostalCode"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasStoreID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#Stores -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/npdpospoc#Stores">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/npdpospoc#hasAttribute"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/npdpospoc#Store_Attributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasPostalCode"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#hasStoreID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ACC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ACC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#CYC"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#GRS"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#ODO"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#RFT"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#SNO"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Accessory</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Accessory Retail Market</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ACC_A_BRAND -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ACC_A_BRAND">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#ACC"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asseccory Brand</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asseccory product brand collections</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ALL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ALL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">all</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#APL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#APL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#CYC"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#GRS"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#ODO"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#RFT"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#SNO"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparel</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparal Retail Market</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#APL_A_CATEGORY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#APL_A_CATEGORY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#APL"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparal Category</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparal Category Attribute Collection</isDescribedAs>
+        <definition>The individule of Attribute Sets to represent apparal product category collections.</definition>
+        <rdfs:label>APL_A_CATEGORY</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ASP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ASP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Argentina</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ATR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ATR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auto Trac</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#AUT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#AUT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Automotive</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#BEA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#BEA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beauty</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#BSC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#BSC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bookscan</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#BZS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#BZS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brazil Sports</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CAN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Countries"/>
+        <isGeoPartOf rdf:resource="http://www.semanticweb.org/npdpospoc#NA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CAP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CAP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparel Canada</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CCT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CCT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Car Care Track</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CEL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CEL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cell Track</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CFO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CFO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Food Canada</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CFT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CFT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Canada</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CGA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CGA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Global Apparel China</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CSE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Equipment Canada</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CSH -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CSH">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shopping Bag Canada</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CSP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CSP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">China Sports And Leisure</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CSS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CSS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NPD Client Satisfaction Survey</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#CYC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#CYC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cycling</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#DJW -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#DJW">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Diamond and Jewelry</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ENT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ENT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entertainment</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ESP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ESP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports EU</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#EU -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#EU">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Regions"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Europe</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FAS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FAS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FOO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FOO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Food</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FRN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FRN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Countries"/>
+        <isGeoPartOf rdf:resource="http://www.semanticweb.org/npdpospoc#EU"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#GRS"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#ODO"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#RFT"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#SNO"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Retail Market</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_AUTOXLSETBRANDLIST -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_AUTOXLSETBRANDLIST">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AutoXL Set Brand List</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AutoXL Set Brand List</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_BRAND -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_BRAND">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand (New)</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand (New)</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_BRANDFAMILY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_BRANDFAMILY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand Family</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand Family</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_BRANDFIN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_BRANDFIN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Financial Brands</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Financial Brands</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_BRANDTYPE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_BRANDTYPE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand Type</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brand Type</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category (New)</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category (New)</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORYTYPE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORYTYPE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category Type</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category Type</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_CLASS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Foot Wear Class</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Foot Wear Class</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_CLASSIFICATION -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_CLASSIFICATION">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Classification</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Classification</isDescribedAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Classification</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_COMPANY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_COMPANY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Company</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Company</isDescribedAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Company Name</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_CORPBRAND -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_CORPBRAND">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corporate Brand</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corporate Brand</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_FRANCHISE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_FRANCHISE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">franchise</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">franchise</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_SUBCLASS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_SUBCLASS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubClass</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubClass</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SuperCategory</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SuperCategory</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_A_WEARERSIZE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_A_WEARERSIZE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#General_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwearer Size</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Foot Wear Product general wearar Size</isDescribedAs>
+        <definition>Individule Attribute Set for Foot Wear Produt Wearer&apos;s Size definitions.</definition>
+        <rdfs:label>FTW_A_WEARERSIZE</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_C_CATEGORYTRACKER -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_C_CATEGORYTRACKER">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Categorytracker</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Category From Tracker for footwear super category</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_C_FOOTWEARTYPE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_C_FOOTWEARTYPE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">footweartype</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Type</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_C_ITEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_C_ITEM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_C_ITEMCLASSIFICATION -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_C_ITEMCLASSIFICATION">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Itemclassification</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Itemclassification</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_P_CATSFORGROUPITEMID -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_P_CATSFORGROUPITEMID">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class for GroupItemID</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class for GroupItemID</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_P_CATSFORPARENTITEMID -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_P_CATSFORPARENTITEMID">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class for ParentItemID</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class for ParentItemID</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FTW_P_FTWSUBTP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FTW_P_FTWSUBTP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#FTW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FTWSUBTP</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Sub Type</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#FUN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#FUN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fun</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#GRS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#GRS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grassroots Industry</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#HIT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#HIT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hit</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#HLB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#HLB">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High Level Business</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#HOU -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#HOU">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">House</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#HTX -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#HTX">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Home Textiles</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#HWS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#HWS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Housewares</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#IGA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#IGA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Global Apparel India</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#JGA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#JGA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Japan Global Apparel</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#JSP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#JSP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Japan</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#JUV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#JUV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Juvenile</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#KID -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#KID">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kids Tracker</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#KSP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#KSP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Korea</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#LIC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#LIC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">License Tracker</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MBG -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MBG">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mobile Games Test</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MFI -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MFI">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motor Fuel Index</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MFO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MFO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MFI Mobile Optimized</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MPO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MPO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mobile Phone Track Optimized</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MSP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MSP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Mexico</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#MXC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#MXC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Countries"/>
+        <isGeoPartOf rdf:resource="http://www.semanticweb.org/npdpospoc#NA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#NA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Regions"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">North America</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#NET -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#NET">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Net Online</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ODO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ODO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outdoor Industry</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#RFT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#RFT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running And Fitness Industry</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#RGA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#RGA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Russia Global Apparel</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#RUS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#RUS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Russia Sports</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SFT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SFT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SHO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SHO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shopping Bag</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SNK -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SNK">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Snacktrack</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SNO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SNO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Snow Industry</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SPE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SPE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#CYC"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#GRS"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#ODO"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#RFT"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#SNO"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Equipment</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#STO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#STO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Snack Track Optimized</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#SUP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#SUP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SupplyTrack</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TAT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tech &amp; Toys</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TEC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TEC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#DJW"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Technolegy</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Technolegy Retail Market</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TEC_A_CHANNEL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TEC_A_CHANNEL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Outlet_Attribute_Sets"/>
+        <isDefinedBy rdf:resource="http://www.semanticweb.org/npdpospoc#TEC"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tech Channel</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sales Channels of Technology Products</isDescribedAs>
+        <definition>An individul of Attribute Sets represents the technology product sales channel collections</definition>
+        <rdfs:label>TEC_A_CHANNEL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TMS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TMS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Team Sports</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TOY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TOY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <isChildBusinessOf rdf:resource="http://www.semanticweb.org/npdpospoc#JUV"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Toys</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#TSP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#TSP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sports Turkey</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#UDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#UDB">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Undetermined Business</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#UK -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#UK">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Countries"/>
+        <isGeoPartOf rdf:resource="http://www.semanticweb.org/npdpospoc#EU"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#USA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#USA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Countries"/>
+        <isGeoPartOf rdf:resource="http://www.semanticweb.org/npdpospoc#NA"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#VDW -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#VDW">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Video Watch</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#VGH -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#VGH">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Video Game Hits</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#VID -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#VID">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Video</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#WAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#WAL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Walmart</hasNameAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#ZZZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#ZZZ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#NPD_Businesses"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Not a Real Business</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A placeholder business</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1115386 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1115386">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137644"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outdoor</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outdoor</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1115387 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1115387">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39887"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Lifestyle</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Lifestyle</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1115388 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1115388">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39887"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Slide</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Slide</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1115389 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1115389">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">American Football</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">American Football</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1115390 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1115390">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Golf</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Golf</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1120622 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1120622">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Softball</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Softball</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1120797 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1120797">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Water</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Water</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1120798 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1120798">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hunting/Fishing Boots</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hunting/Fishing Boots</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1129268 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1129268">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mountaineering Boots</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mountaineering Boots</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1129271 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1129271">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137644"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Accessories</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Footwear Accessories</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1129272 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1129272">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1129271"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Insoles</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Insoles</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1129273 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1129273">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1129271"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gaiters</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gaiters</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1129274 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1129274">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traction</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traction</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132597 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132597">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132598 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132598">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slippers</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slippers</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132599 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132599">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slippers</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slippers</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132743 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132743">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132744"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total Socks</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total Socks</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132744 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132744">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132745"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total Socks</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total Socks</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1132745 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1132745">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparel</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apparel</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1137644 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1137644">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leisure</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leisure</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1137645 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1137645">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1138078 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1138078">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indoor Court</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indoor Court</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1138793 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1138793">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Boots</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Boots</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1138794 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1138794">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Sandals</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Sandals</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#1138795 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#1138795">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Shoes</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion Shoes</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39880 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39880">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORYTYPE"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fashion</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39881 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39881">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORYTYPE"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leisure</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leisure</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39882 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39882">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORYTYPE"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39883 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39883">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_SUPERCATEGORY"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39884 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39884">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39885 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39885">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress Casual</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress Casual</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39886 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39886">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39887 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39887">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137644"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Leisure</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport Leisure</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39888 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39888">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Evening</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Evening</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39889 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39889">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137645"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39890 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39890">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39883"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Performance</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39891 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39891">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39892 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39892">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress Casual</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dress Casual</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39893 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39893">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39895 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39895">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Evening</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Evening</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39896 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39896">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1132597"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39880"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unspecified</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39897 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39897">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39887"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Skate</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Skate</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39898 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39898">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Walking</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Walking</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39899 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39899">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hiking/Trekking</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hiking/Trekking</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39900 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39900">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39887"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual Athletic</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Casual Athletic</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39901 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39901">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outdoor/Water Sandal</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Outdoor/Water Sandal</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39902 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39902">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1115386"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cold/All Weather Boots</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cold/All Weather Boots</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39903 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39903">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Basketball</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Basketball</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39904 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39904">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Running</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39905 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39905">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soccer/Football</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soccer/Football</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39906 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39906">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tennis</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tennis</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39907 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39907">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aerobic/Cheer/Dance</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aerobic/Cheer/Dance</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39908 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39908">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Training</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Training</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39909 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39909">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baseball</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baseball</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#39910 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#39910">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39882"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39890"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All Other Performance</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All Other Performance</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#72450 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#72450">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CATEGORY"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#1137644"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Work/Occupational/Safety</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Work/Occupational/Safety</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/npdpospoc#72456 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/npdpospoc#72456">
+        <rdf:type rdf:resource="http://www.semanticweb.org/npdpospoc#Categories"/>
+        <inAttributeSet rdf:resource="http://www.semanticweb.org/npdpospoc#FTW_A_CLASS"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#39881"/>
+        <isChildAttributeOf rdf:resource="http://www.semanticweb.org/npdpospoc#72450"/>
+        <hasNameAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Work/Occupational/Safety</hasNameAs>
+        <isDescribedAs rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Work/Occupational/Safety</isDescribedAs>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Brand_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Category_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Category_Specific_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#General_Sets"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Brands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Categories"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Category_Specifics"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Generals"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Item_Attribute_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Outlet_Attribute_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#POS_Attribute_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Retailer_Attribute_Sets"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Store_Attribute_Sets"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Item_Attributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Outlet_Attributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#POS_Attributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Retailer_Attributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/npdpospoc#Store_Attributes"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
